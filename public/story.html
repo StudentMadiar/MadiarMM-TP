@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Story</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    /* hover‑ефекти для заголовків і delete‑елементів */
+    #historyTable th:hover,
+    #historyTable td.delete-cell:hover {
+      color: var(--yellow-clr);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- header start -->
+  <header class="header">
+    <a href="index.html" class="logo">
+      <i class="fa-solid fa-graduation-cap"></i> Testing
+    </a>
+    <div id="menu-bar" class="fas fa-bars"></div>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Story</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li><a href="user.html">User</a></li>
+    </ul>
+  </header>
+  <!-- header end -->
+
+  <section id="story">
+    <div class="container">
+      <h2>Test History</h2>
+      <table class="table" id="historyTable">
+        <thead>
+          <tr>
+            <th data-col="user">User <span class="sort-indicator"></span></th>
+            <th data-col="testTitle">Test <span class="sort-indicator"></span></th>
+            <th data-col="score">Score <span class="sort-indicator"></span></th>
+            <th data-col="date">Date <span class="sort-indicator"></span></th>
+            <th id="delete-all">Delete all</th>
+          </tr>
+        </thead>
+        <tbody id="history-body">
+          <!-- rows from JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="script/script.js"></script>
+</body>
+</html>

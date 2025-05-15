@@ -1,0 +1,299 @@
+/* css/styles.css */
+
+/*------------------------*/
+/*  базові стилі          */
+/*------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  border: 0;
+  outline: 0;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: all .3s linear;
+}
+
+:root {
+  --yellow-clr: #ffc63d;
+  --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+*::selection {
+  background: var(--yellow-clr);
+  color: #fff;
+}
+
+html {
+  font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+/*------------------------*/
+/*  фон сторінки + відступ*/
+/*------------------------*/
+body {
+  padding-top: 7rem; /* відступ під фіксований header */
+  background:
+    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(135deg, #f7f7f7 0%, #eaeaea 100%);
+}
+
+/*------------------------*/
+/*  відступи для секцій   */
+/*------------------------*/
+section {
+  padding: 2rem 9%;
+}
+
+/*------------------------*/
+/*  header start          */
+/*------------------------*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 8%;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo {
+  font-size: calc(20px + (25 - 20) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 800;
+  color: var(--yellow-clr);
+}
+
+header .logo i {
+  color: #222;
+}
+
+header ul.navbar {
+  display: flex;
+  list-style: none;
+}
+
+header ul.navbar li {
+  margin: 0 1rem;
+}
+
+header ul.navbar li a {
+  color: #222;
+  font-size: calc(14px + (20 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+header ul.navbar li a:hover {
+  color: var(--yellow-clr);
+}
+
+#menu-bar {
+  font-size: calc(20px + (30 - 20) * ((100vw - 300px) / (1600 - 300)));
+  cursor: pointer;
+  color: #222;
+  border: 0.1rem solid #222;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.3rem;
+  display: none;
+}
+/*  header end           */
+
+/*------------------------*/
+/*  media queries         */
+/*------------------------*/
+@media (max-width: 768px) {
+  #menu-bar {
+    display: block;
+  }
+
+  header .navbar {
+    position: absolute;
+    top: 120%;
+    right: 2rem;
+    border-radius: 0.5rem;
+    border: 0.3rem solid var(--yellow-clr);
+    box-shadow: var(--box-shadow);
+    width: 30rem;
+    background: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  header .navbar li {
+    padding: 1.5rem;
+    border: 0.2rem solid rgba(0, 0, 0, 1);
+    background: #fff;
+  }
+
+  header .navbar li:hover {
+    border-left: 0.5rem solid var(--yellow-clr);
+    border-right: 0.5rem solid var(--yellow-clr);
+  }
+}
+
+/*------------------------*/
+/*  контейнер             */
+/*------------------------*/
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+/*------------------------*/
+/*  списки і таблиці      */
+/*------------------------*/
+.list,
+.table {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/*------------------------*/
+/*  кнопки                */
+/*------------------------*/
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--yellow-clr);
+  color: #222;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/*------------------------*/
+/*  модалки               */
+/*------------------------*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  max-width: 500px;
+  width: 90%;
+}
+
+/*------------------------*/
+/*  форма                 */
+/*------------------------*/
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+/* css/styles.css */
+
+/*------------------------*/
+/*  test page styles      */
+/*------------------------*/
+#question-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;            /* відступи між питаннями/опціями */
+  margin-top: 2rem;
+}
+
+#question-container > p {
+  font-size: 2rem;      /* більший текст питання */
+  font-weight: 700;
+}
+
+#question-container > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
+}
+
+#next-btn {
+  align-self: center;
+  margin-top: 2rem;
+}
+
+/* модальне вікно по центру */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+.modal.active { display: flex; }
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: .5rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+#modal-close {
+  margin-top: 1.5rem;
+}
